@@ -1,12 +1,18 @@
 switch (typeCurrent) {
 	
 	case FOO_TYPE.FOLLOWER: {
-		
-		move_and_collide(
-			lengthdir_x(spd, spdDirection),
-			lengthdir_y(spd, spdDirection),
-			obj_foo
-		)
+		if (instance_place(x, y, obj_foo) != noone) {
+	        // Already overlapping — move freely and nudge apart
+	        x += lengthdir_x(spd, spdDirection)
+	        y += lengthdir_y(spd, spdDirection)
+	        foo_separate()
+	    } else {
+			move_and_collide(
+				lengthdir_x(spd, spdDirection),
+				lengthdir_y(spd, spdDirection),
+				obj_foo
+			)
+		}
 		turn_to_target()
 	}
 	break
@@ -27,7 +33,8 @@ switch (typeCurrent) {
 	
 	case FOO_TYPE.CHARGER: {
 		chargeCooldownCurrent--
-		turn_to_target()
+		
+		if (chargeCooldownCurrent > chargeGraceTime) turn_to_target()
 		
 		if (chargeCooldownCurrent <= 0) {
 			if (chargeTarget == noone) {
@@ -36,6 +43,13 @@ switch (typeCurrent) {
 					y: y + lengthdir_y(chargeDistance * chargeDistanceMultiplier, spdDirection)
 				}
 				audio_play_sound(SND_MOVE_CHARGER, 0, false, 1, 0, SND_PITCH)
+				instance_create_depth(x, y, depth, obj_collisionLine, {
+					x1: x,
+					y1: y,
+					x2: chargeTarget.x,
+					y2: chargeTarget.y,
+					destroyAfterXFrames: 3
+				})
 			}
 			x = lerp(x, chargeTarget.x, chargeLerp)
 			y = lerp(y, chargeTarget.y, chargeLerp)
@@ -73,3 +87,4 @@ switch (type) {
 	break
 	
 }
+

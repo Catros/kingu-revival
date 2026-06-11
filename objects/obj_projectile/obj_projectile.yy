@@ -7,7 +7,9 @@
   ],
   "managed":true,
   "name":"obj_projectile",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_damage","path":"objects/obj_damage/obj_damage.yy",},"propertyId":{"name":"singleHit","path":"objects/obj_damage/obj_damage.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+  ],
   "parent":{
     "name":"BLANK GAME1",
     "path":"BLANK GAME1.yyp",

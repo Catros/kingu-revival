@@ -1,6 +1,6 @@
 if (invincible) exit
 
-if (other.object_index == obj_projectile) {
+if (other.singleHit) {
 	instance_destroy(other)
 }
 
@@ -21,3 +21,4 @@ spdCurrent = spd
 audio_play_sound(SND_HIT_PLAYER, 0, false, 1, 0, SND_PITCH)
 
 if (starCounter == 0) room_restart()
+

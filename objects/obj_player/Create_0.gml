@@ -1,6 +1,6 @@
 set_controller_instance(id, true, true)
 
-starCounter = 3
+starCounter = 99
 
 spd = 8
 spdCurrent = 0
