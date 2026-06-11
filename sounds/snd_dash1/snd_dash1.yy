@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_dash1",
+  "audioGroupId":{
+    "name":"audiogroup_effect",
+    "path":"audiogroups/audiogroup_effect",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":2.5,
+  "exportDir":"",
+  "name":"snd_dash1",
+  "parent":{
+    "name":"Charger",
+    "path":"folders/Sounds/Move/Charger.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_dash1.wav",
+  "volume":1.0,
+}

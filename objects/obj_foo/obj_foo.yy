@@ -31,7 +31,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"debug_type","filters":[],"listItems":[],"multiselect":false,"name":"debug_type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"foo_type.follower","varType":4,},
+    {"$GMObjectProperty":"v2","%Name":"debug_type","filters":[],"listItems":[],"multiselect":false,"name":"debug_type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"FOO_TYPE.FOLLOWER","varType":4,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

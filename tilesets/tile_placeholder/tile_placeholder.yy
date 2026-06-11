@@ -1,0 +1,42 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tile_placeholder",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":9,
+    "SerialiseWidth":9,
+    "TileCompressedData":[
+      1,11,-7,8,9,1,8,1,5,8,8,13,8,4,-3,8,1,7,-4,8,8,2,9,8,12,8,2,8,4,-5,8,1,14,-4,8,7,6,4,6,8,8,1,13,-6,8,
+      4,4,8,8,13,-4,8,1,2,-6,8,10,12,8,14,11,7,8,8,5,11,8,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"tile_placeholder",
+  "out_columns":8,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"BLANK GAME1",
+    "path":"BLANK GAME1.yyp",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"spr_tilesetPlaceholder",
+    "path":"sprites/spr_tilesetPlaceholder/spr_tilesetPlaceholder.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":32,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":32,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":64,
+}
