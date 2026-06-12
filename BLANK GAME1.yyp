@@ -93,6 +93,8 @@
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"gamecontrollerdb.txt","CopyToMask":-1,"filePath":"datafiles","name":"gamecontrollerdb.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"input_license.txt","CopyToMask":-1,"filePath":"datafiles","name":"input_license.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"en.json","CopyToMask":-1,"filePath":"datafiles/locales","name":"en.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"fr.json","CopyToMask":-1,"filePath":"datafiles/locales","name":"fr.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"scribble_license.txt","CopyToMask":-1,"filePath":"datafiles","name":"scribble_license.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
@@ -102,8 +104,8 @@
   },
   "name":"BLANK GAME1",
   "resources":[
+    {"id":{"name":"fnt_console","path":"fonts/fnt_console/fnt_console.yy",},},
     {"id":{"name":"fnt_default","path":"fonts/fnt_default/fnt_default.yy",},},
-    {"id":{"name":"font_console","path":"fonts/font_console/font_console.yy",},},
     {"id":{"name":"scribble_fallback_font","path":"fonts/scribble_fallback_font/scribble_fallback_font.yy",},},
     {"id":{"name":"__InputUpdateController","path":"objects/__InputUpdateController/__InputUpdateController.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
@@ -482,6 +484,7 @@
     {"id":{"name":"scr_jukebox","path":"scripts/scr_jukebox/scr_jukebox.yy",},},
     {"id":{"name":"scr_pause","path":"scripts/scr_pause/scr_pause.yy",},},
     {"id":{"name":"scr_savedata","path":"scripts/scr_savedata/scr_savedata.yy",},},
+    {"id":{"name":"scr_shellCommands","path":"scripts/scr_shellCommands/scr_shellCommands.yy",},},
     {"id":{"name":"scr_soundGroups","path":"scripts/scr_soundGroups/scr_soundGroups.yy",},},
     {"id":{"name":"scr_util","path":"scripts/scr_util/scr_util.yy",},},
     {"id":{"name":"scr_viewMacros","path":"scripts/scr_viewMacros/scr_viewMacros.yy",},},

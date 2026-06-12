@@ -75,3 +75,14 @@ function get_target_aim(_target, _origin_x, _origin_y, _bullet_spd) {
 	
 	return point_direction(_origin_x, _origin_y, _target.x, _target.y)
 }
+
+function file_get_content(_filename) {
+	var _buffer = buffer_load(_filename)
+	
+	if (_buffer != -1) {
+		var _text = buffer_read(_buffer, buffer_string)
+		buffer_delete(_buffer)
+		return _text
+	}
+	throw "File doesn't exists."
+}

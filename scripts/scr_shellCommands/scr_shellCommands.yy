@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"use_tdmc",
+  "%Name":"scr_shellCommands",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"use_tdmc",
+  "name":"scr_shellCommands",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"font_console",
+  "%Name":"fnt_console",
   "AntiAlias":0,
   "applyKerning":0,
   "ascender":0,
@@ -117,7 +117,7 @@
   "last":0,
   "lineHeight":0,
   "maintainGms1Font":false,
-  "name":"font_console",
+  "name":"fnt_console",
   "parent":{
     "name":"Fonts",
     "path":"folders/Fonts.yy",

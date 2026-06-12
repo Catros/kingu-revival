@@ -30,8 +30,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"width","filters":[],"listItems":[],"multiselect":false,"name":"width","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"500","varType":0,},
-    {"$GMObjectProperty":"v2","%Name":"height","filters":[],"listItems":[],"multiselect":false,"name":"height","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"96","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"width","filters":[],"listItems":[],"multiselect":false,"name":"width","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"750","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"height","filters":[],"listItems":[],"multiselect":false,"name":"height","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"300","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"screenAnchorPointV","filters":[],"listItems":[
         "\"top\"",
         "\"middle\"",
@@ -41,7 +41,7 @@
         "\"left\"",
         "\"center\"",
         "\"right\"",
-      ],"multiselect":false,"name":"screenAnchorPointH","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"center\"","varType":6,},
+      ],"multiselect":false,"name":"screenAnchorPointH","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"left\"","varType":6,},
     {"$GMObjectProperty":"v2","%Name":"anchorMargin","filters":[],"listItems":[],"multiselect":false,"name":"anchorMargin","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"consolePaddingV","filters":[],"listItems":[],"multiselect":false,"name":"consolePaddingV","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"consolePaddingH","filters":[],"listItems":[],"multiselect":false,"name":"consolePaddingH","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":0,},
@@ -49,7 +49,7 @@
     {"$GMObjectProperty":"v2","%Name":"promptColor","filters":[],"listItems":[],"multiselect":false,"name":"promptColor","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FF3600ED","varType":7,},
     {"$GMObjectProperty":"v2","%Name":"consoleColor","filters":[],"listItems":[],"multiselect":false,"name":"consoleColor","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"c_black","varType":4,},
     {"$GMObjectProperty":"v2","%Name":"consoleAlpha","filters":[],"listItems":[],"multiselect":false,"name":"consoleAlpha","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.9","varType":0,},
-    {"$GMObjectProperty":"v2","%Name":"consoleFont","filters":[],"listItems":[],"multiselect":false,"name":"consoleFont","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"font_console","path":"fonts/font_console/font_console.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"font_console","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"consoleFont","filters":[],"listItems":[],"multiselect":false,"name":"consoleFont","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"fnt_console","path":"fonts/fnt_console/fnt_console.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"fnt_console","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"fontColor","filters":[],"listItems":[],"multiselect":false,"name":"fontColor","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FFF5F2FF","varType":7,},
     {"$GMObjectProperty":"v2","%Name":"fontColorSecondary","filters":[],"listItems":[],"multiselect":false,"name":"fontColorSecondary","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FF7B768C","varType":7,},
     {"$GMObjectProperty":"v2","%Name":"cornerRadius","filters":[],"listItems":[],"multiselect":false,"name":"cornerRadius","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"12","varType":0,},

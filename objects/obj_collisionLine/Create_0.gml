@@ -9,7 +9,7 @@ y = (y1 + y2) * 0.5;
 image_angle = dir;
 
 // Stretch the mask
-image_xscale = len / sprite_width;
+image_xscale = len / sprite_get_width(sprite_index);
 image_yscale = 1;
 
 alarm[0] = destroyAfterXFrames

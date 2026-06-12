@@ -46,9 +46,10 @@ switch (typeCurrent) {
 				instance_create_depth(x, y, depth, obj_collisionLine, {
 					x1: x,
 					y1: y,
-					x2: chargeTarget.x,
-					y2: chargeTarget.y,
-					destroyAfterXFrames: 3
+					x2: x + lengthdir_x(2, spdDirection),
+					y2: y + lengthdir_y(2, spdDirection),
+					destroyAfterXFrames: 6,
+					target: id
 				})
 			}
 			x = lerp(x, chargeTarget.x, chargeLerp)

@@ -1,0 +1,14 @@
+{
+  "app": {
+    "title": "",
+    "welcomeMessage": ""
+  },
+  "buttons": {
+    "cancel": "",
+    "submit": ""
+  },
+  "errors": {
+    "networkError": "",
+    "validationError": ""
+  }
+}

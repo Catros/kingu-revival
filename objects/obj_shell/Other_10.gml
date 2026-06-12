@@ -40,6 +40,8 @@ variable_global_set("sh_help", function(args) {
 		// Show a listing of all available functions
 		var output = "List of available commands:\n";
 		var hiddenCount = 0;
+		var colWidth = (width - (consolePaddingH * 2)) / 2;
+
 		for (var i = 0; i < array_length(availableFunctions); i++) {
 			var functionName = availableFunctions[i];
 			// #32 : don't display hidden functions in the function list
@@ -52,17 +54,15 @@ variable_global_set("sh_help", function(args) {
 				}
 			}
 			if (!hidden) {
-				var terminator = "";
-				if ((i - hiddenCount) % 2 == 0) {
-					var paddingWidth = (width/2) - (anchorMargin + string_width(functionName));
-					var spaceCount = paddingWidth/string_width(" ");
-					repeat (spaceCount) {
-						terminator += " ";
-					}
+				var visibleIndex = i - hiddenCount;
+				if (visibleIndex % 2 == 0) {
+					var paddingWidth = colWidth - string_width(functionName);
+					var spaceCount = max(1, floor(paddingWidth / string_width(" ")));
+					var terminator = string_repeat(" ", spaceCount);
+					output += functionName + terminator;
 				} else {
-					terminator = "\n";
+					output += functionName + "\n";
 				}
-				output += functionName + terminator;
 			}
 		}
 		return output;
