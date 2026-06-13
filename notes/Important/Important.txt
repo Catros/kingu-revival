@@ -1,0 +1,3 @@
+===== PROJET =====
+
+1. Avant la publication, enlever/remplacer tout ce qui est marqué du tag "IA-MADE".

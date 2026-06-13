@@ -24,6 +24,8 @@ controlsDisabledTimeSource = time_source_create(time_source_game, controlsDisabl
 
 move = use_tdmc()
 
+zoneCurrent = undefined
+
 #region ==== ANIMATION ====
 
 shakeStrengthLower = 8

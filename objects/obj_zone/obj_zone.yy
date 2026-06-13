@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_collision",
-  "eventList":[],
+  "%Name":"obj_zone",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_collision",
+  "name":"obj_zone",
   "overriddenProperties":[],
   "parent":{
     "name":"BLANK GAME1",
@@ -23,13 +25,15 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"centerCamera","filters":[],"listItems":[],"multiselect":false,"name":"centerCamera","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_collisionBox",
-    "path":"sprites/spr_collisionBox/spr_collisionBox.yy",
+    "name":"spr_collisionBox2",
+    "path":"sprites/spr_collisionBox2/spr_collisionBox2.yy",
   },
   "spriteMaskId":null,
   "visible":false,

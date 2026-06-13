@@ -4,6 +4,8 @@ function sh_mute() {
 	return "Sound muted"
 }
 
+// IA-MADE
+
 function sh_get(args) {
 	var _var_name = args[1]
 

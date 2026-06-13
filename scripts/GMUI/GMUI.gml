@@ -45,6 +45,9 @@
 // CORE (Initialization, main loop, window management)
 //////////////////////////////////////
 
+// feather disable all
+// feather ignore all
+
 enum gmui_window_flags {
     NONE							= 0,
     NO_TITLE_BAR					= 1 << 0,

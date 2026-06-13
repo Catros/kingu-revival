@@ -1029,7 +1029,7 @@ function sprite_swap(_sprite) {
 /// @returns    {real}                The equivalent time in microseconds
 /// @description                      Converts game steps to microseconds based on room speed.
 function steps_to_microseconds(_steps) {
-	return 1000000 * (_steps / room_speed);
+	return 1000000 * (_steps / game_get_speed(gamespeed_fps));
 }
 
 /// @function   with_tag(_tags, _func)
