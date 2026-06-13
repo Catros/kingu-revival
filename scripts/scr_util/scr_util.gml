@@ -86,3 +86,33 @@ function file_get_content(_filename) {
 	}
 	throw "File doesn't exists."
 }
+
+/// @function draw_stat_circle(value, maxValue, centerX, centerY, radius, thickness, hueMax)
+/// @description Draws a ring of small circles representing a stat (health, mana, stamina, etc.)
+///              as points around a circle, colored on a hue gradient from hueMax down to 0
+///              based on the value/maxValue ratio. Only points up to and including the
+///              current value are drawn.
+/// @param {real} value      Current value of the stat
+/// @param {real} maxValue   Maximum value of the stat (also determines number of points)
+/// @param {real} centerX    X coordinate of the circle's center
+/// @param {real} centerY    Y coordinate of the circle's center
+/// @param {real} radius     Radius of the main circle the points are placed on
+/// @param {real} thickness Radius of each individual point drawn
+/// @param {real} hueMax     Hue value (0-255) representing a full stat (e.g. 80 = green)
+function draw_stat_circle(value, maxValue, centerX, centerY, radius, thickness, hueMax) {
+	var _points = maxValue
+	var _slice = 2 * pi / _points
+
+	for (var _i = 0; _i < _points; _i++) {
+		var _angle = _slice * _i
+		var _newX = centerX + radius * cos(_angle)
+		var _newY = centerY + radius * sin(_angle)
+
+		if (_i <= value) {
+			var _hue = value / maxValue * hueMax
+			draw_set_color(make_color_hsv(_hue, 255, 255))
+			draw_circle(_newX, _newY, thickness, false)
+		}
+	}
+}
+

@@ -12,3 +12,15 @@ if (_inputX != 0 || _inputY != 0) {
 	spdCurrent = lerp(spdCurrent, 0, spdAcc)
 }
 
+if (dodgeCooldownCurrent == statDodgeCooldown) {
+	if (InputCheck(INPUT_VERB.DODGE)) {
+		dodgeCooldownCurrent--
+		controlsDisabled = true
+		controlsDisabledDuration = controlsDisabledDurationDodge
+		time_source_start(controlsDisabledTimeSource)
+		spdCurrent += statDodgeSpeed
+	}
+} else {
+	dodgeCooldownCurrent--
+	if (dodgeCooldownCurrent <= 0) dodgeCooldownCurrent = statDodgeCooldown
+}

@@ -1,6 +1,14 @@
 set_controller_instance(id, true, true)
 
-starCounter = 99
+#region === STATS ===
+
+statStarCounter = 99
+statCriticalZone = 50
+statPerfectDodge = 2
+statDodgeSpeed = 20
+statDodgeCooldown = 180
+
+#endregion
 
 spd = 8
 spdCurrent = 0
@@ -16,11 +24,16 @@ invincibleTimeSource = time_source_create(time_source_game, invincibleCooldown, 
 
 controlsDisabled = false
 controlsDisabledDuration = 12
+controlsDisabledDurationHit = 12
+controlsDisabledDurationDodge = 5
 controlsDisabledTimeSource = time_source_create(time_source_game, controlsDisabledDuration, time_source_units_frames, function() {
 	controlsDisabled = false
 	time_source_stop(controlsDisabledTimeSource)
 })
 
+
+dodgeCooldownCurrent = statDodgeCooldown
+dodgeTarget = {}
 
 move = use_tdmc()
 

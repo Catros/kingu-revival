@@ -4,6 +4,18 @@ function sh_mute() {
 	return "Sound muted"
 }
 
+function sh_game_restart() {
+	game_restart()
+}
+
+function sh_room_restart() {
+	room_restart()
+}
+
+function sh_game_close() {
+	game_end()
+}
+
 // IA-MADE
 
 function sh_get(args) {

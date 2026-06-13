@@ -7,7 +7,7 @@ with (other) {
                      && (other.bbox_bottom <= bbox_bottom);
 
     if (fully_inside) {
-        global.camera.set_target(id, false)
+		global.camera.setZone(id)
 		other.zoneCurrent = id
     }
 }

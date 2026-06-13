@@ -1,4 +1,5 @@
 randomise()
+draw_set_circle_precision(64)
 
 global.controller = noone
 global.system = id

@@ -12,7 +12,10 @@ window_center()
 surface_resize(APP_SURF, BASE_W * window_scale, BASE_H * window_scale)
 display_set_gui_size(BASE_W, BASE_H)
 
+damping = 0.02 //Sets the camera smoothing.
+
 target = noone
+zoneCurrent = undefined
 
 shake = new Shake()
 
@@ -23,6 +26,11 @@ set_target = function(_instance, _startOnInstance = true) {
 	
 	if (_startOnInstance)
 		snap_to_target()
+}
+
+// A supprimer si la fonction n'est pas étoffée
+setZone = function(_instance) {
+	zoneCurrent = _instance
 }
 
 snap_to_target = function() {
