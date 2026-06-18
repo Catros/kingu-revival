@@ -116,3 +116,116 @@ function draw_stat_circle(value, maxValue, centerX, centerY, radius, thickness, 
 	}
 }
 
+// IA-MADE
+
+// Annular collision helpers — ring = area between inner_radius and outer_radius.
+//
+// Detection is two-stage: collision_circle_list() finds outer-circle candidates,
+// then candidates whose entire bounding box fits strictly inside the inner circle
+// are rejected. This is conservative: false positives are possible (bbox straddles
+// the hole boundary but precise mask is fully inside), false negatives are not.
+//
+// For the first hit only:  collision_ring()
+// For all hits:            collision_ring_list()
+
+
+/// @function collision_ring(cx, cy, inner_radius, outer_radius, obj, prec, notme)
+/// @desc     Returns the first instance of obj intersecting the ring, or noone.
+///           Pass inner_radius = 0 for a plain circle (delegates to collision_circle).
+/// @param {real}           cx            Ring centre X.
+/// @param {real}           cy            Ring centre Y.
+/// @param {real}           inner_radius  Hole radius (>= 0, < outer_radius).
+/// @param {real}           outer_radius  Outer boundary radius (> 0).
+/// @param {Asset.GMObject} obj           Object to test against.
+/// @param {bool}           prec          Use precise masks for the outer-circle test.
+/// @param {bool}           notme         Exclude the calling instance.
+/// @return {Id.Instance}
+function collision_ring(cx, cy, inner_radius, outer_radius, obj, prec, notme)
+{
+    if (inner_radius < 0 || outer_radius <= 0 || inner_radius >= outer_radius)
+        return noone;
+
+    // Fast path: no hole, delegate directly.
+    if (inner_radius == 0)
+        return collision_circle(cx, cy, outer_radius, obj, prec, notme);
+
+    var _candidates = ds_list_create();
+    var _count      = collision_circle_list(cx, cy, outer_radius, obj, prec, notme, _candidates, false);
+    var _result     = noone;
+
+    for (var _i = 0; _i < _count; ++_i)
+    {
+        if (!__collision_ring_bbox_fully_inside_circle(_candidates[| _i], cx, cy, inner_radius))
+        {
+            _result = _candidates[| _i];
+            break;
+        }
+    }
+
+    ds_list_destroy(_candidates);
+    return _result;
+}
+
+
+/// @function collision_ring_list(cx, cy, inner_radius, outer_radius, obj, prec, notme, list, ordered)
+/// @desc     Appends every instance of obj intersecting the ring to list.
+///           Returns the number of instances added. Does not clear list beforehand.
+///           Pass inner_radius = 0 for a plain circle (delegates to collision_circle_list).
+///           When ordered = true, retained candidates preserve their distance-sorted
+///           relative order, but the sequence may have gaps where hole-rejected
+///           candidates were removed.
+/// @param {real}           cx            Ring centre X.
+/// @param {real}           cy            Ring centre Y.
+/// @param {real}           inner_radius  Hole radius (>= 0, < outer_radius).
+/// @param {real}           outer_radius  Outer boundary radius (> 0).
+/// @param {Asset.GMObject} obj           Object to test against.
+/// @param {bool}           prec          Use precise masks for the outer-circle test.
+/// @param {bool}           notme         Exclude the calling instance.
+/// @param {Id.DsList}      list          Existing ds_list to append results into.
+/// @param {bool}           ordered       Sort retained results by distance from centre.
+/// @return {real}  Number of instances added to list.
+function collision_ring_list(cx, cy, inner_radius, outer_radius, obj, prec, notme, list, ordered)
+{
+    if (inner_radius < 0 || outer_radius <= 0 || inner_radius >= outer_radius)
+        return 0;
+
+    // Fast path: no hole, delegate directly.
+    if (inner_radius == 0)
+        return collision_circle_list(cx, cy, outer_radius, obj, prec, notme, list, ordered);
+
+    var _candidates = ds_list_create();
+    var _raw_count  = collision_circle_list(cx, cy, outer_radius, obj, prec, notme, _candidates, ordered);
+    var _added      = 0;
+
+    for (var _i = 0; _i < _raw_count; ++_i)
+    {
+        var _inst = _candidates[| _i];
+        if (!__collision_ring_bbox_fully_inside_circle(_inst, cx, cy, inner_radius))
+        {
+            ds_list_add(list, _inst);
+            ++_added;
+        }
+    }
+
+    ds_list_destroy(_candidates);
+    return _added;
+}
+
+
+/// @function __collision_ring_bbox_fully_inside_circle(inst, cx, cy, radius)
+/// @desc     Returns true when inst's entire bounding box lies strictly inside
+///           the circle — i.e. the farthest bbox corner from (cx, cy) is closer
+///           than radius. Touching the boundary returns false (counts as ring hit).
+/// @param {Id.Instance} inst
+/// @param {real}        cx      Circle centre X.
+/// @param {real}        cy      Circle centre Y.
+/// @param {real}        radius  Circle radius.
+/// @return {bool}
+function __collision_ring_bbox_fully_inside_circle(inst, cx, cy, radius)
+{
+    // The farthest bbox corner on each axis is whichever edge is more distant
+    // from the centre. Comparing squared distances avoids a sqrt.
+    var _dx = max(abs(inst.bbox_left - cx), abs(inst.bbox_right  - cx));
+    var _dy = max(abs(inst.bbox_top  - cy), abs(inst.bbox_bottom - cy));
+    return (sqr(_dx) + sqr(_dy)) < sqr(radius);
+}

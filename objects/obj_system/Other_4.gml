@@ -7,3 +7,5 @@ if (layer_exists("Ground")) {
 }
 
 jukebox_play_song(mus_musicPlaceholder)
+video_open("output.mp4")
+jukebox_play_song(mus_musicSubway)

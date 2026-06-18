@@ -3,12 +3,22 @@ set_controller_instance(id, true, true)
 #region === STATS ===
 
 statStarCounter = 99
+
 statCriticalZone = 50
-statPerfectDodge = 2
+
+statDodgePerfect = 2 //Zone around crit zone
 statDodgeSpeed = 20
-statDodgeCooldown = 180
+statDodgeCooldown = 120
+statDodgeInvincibleDuration = 10
+
+statRecoveryInvincibility = 120
+statRecoveryControls = 5
 
 #endregion
+
+enum STATE {
+	IDLE, RUNNING, WALK
+}
 
 spd = 8
 spdCurrent = 0
@@ -16,24 +26,11 @@ spdAcc = 0.5
 moveDirection = 0
 
 invincible = false
-invincibleCooldown = 180
-invincibleTimeSource = time_source_create(time_source_game, invincibleCooldown, time_source_units_frames, function() {
-	invincible = false
-	time_source_stop(invincibleTimeSource)
-})
 
 controlsDisabled = false
-controlsDisabledDuration = 12
-controlsDisabledDurationHit = 12
-controlsDisabledDurationDodge = 5
-controlsDisabledTimeSource = time_source_create(time_source_game, controlsDisabledDuration, time_source_units_frames, function() {
-	controlsDisabled = false
-	time_source_stop(controlsDisabledTimeSource)
-})
+controlsDisabledHandle = noone
 
-
-dodgeCooldownCurrent = statDodgeCooldown
-dodgeTarget = {}
+dodgeCooldownCurrent = 0
 
 move = use_tdmc()
 

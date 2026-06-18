@@ -5,7 +5,9 @@ if (other.singleHit) {
 }
 
 invincible = true
-time_source_start(invincibleTimeSource)
+call_later(statRecoveryInvincibility, time_source_units_frames, function() {
+	invincible = false
+})
 
 statStarCounter--
 
@@ -14,8 +16,8 @@ global.camera.shake.start(
 	_directionHit, random_range(shakeStrengthLower, shakeStrengthHigher)
 )
 controlsDisabled = true
-controlsDisabledDuration = controlsDisabledDurationHit
-time_source_start(controlsDisabledTimeSource)
+call_cancel(controlsDisabledHandle)
+call_later(statRecoveryControls, time_source_units_frames, function(){controlsDisabled = false})
 moveDirection = _directionHit
 spdCurrent = spd
 

@@ -12,7 +12,7 @@ window_center()
 surface_resize(APP_SURF, BASE_W * window_scale, BASE_H * window_scale)
 display_set_gui_size(BASE_W, BASE_H)
 
-damping = 0.02 //Sets the camera smoothing.
+damping = 0.12 //Sets the camera smoothing.
 
 target = noone
 zoneCurrent = undefined

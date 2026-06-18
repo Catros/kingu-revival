@@ -12,15 +12,29 @@ if (_inputX != 0 || _inputY != 0) {
 	spdCurrent = lerp(spdCurrent, 0, spdAcc)
 }
 
-if (dodgeCooldownCurrent == statDodgeCooldown) {
+if (dodgeCooldownCurrent <= 0) {
 	if (InputCheck(INPUT_VERB.DODGE)) {
-		dodgeCooldownCurrent--
+		dodgeCooldownCurrent = statDodgeCooldown
 		controlsDisabled = true
-		controlsDisabledDuration = controlsDisabledDurationDodge
-		time_source_start(controlsDisabledTimeSource)
+		call_later(statRecoveryControls, time_source_units_frames, function() {
+			controlsDisabled = false
+		})
 		spdCurrent += statDodgeSpeed
+		
+		var _isPerfectDodge = collision_ring(
+			x, y,
+			statCriticalZone - statDodgePerfect,
+			statCriticalZone + statDodgePerfect,
+			obj_damage, true, true
+		) != noone
+		
+		if (_isPerfectDodge) {
+			invincible = true
+			call_later(statDodgeInvincibleDuration, time_source_units_frames, function() {
+				invincible = false
+			})
+		}
 	}
 } else {
 	dodgeCooldownCurrent--
-	if (dodgeCooldownCurrent <= 0) dodgeCooldownCurrent = statDodgeCooldown
 }
