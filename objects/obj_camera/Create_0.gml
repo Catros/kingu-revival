@@ -1,11 +1,7 @@
-var _max_h_scale = DISP_W / BASE_W
-var _max_w_scale = DISP_H / BASE_H
+var _max_h_scale = floor(DISP_W / BASE_W)
+var _max_w_scale = floor(DISP_H / BASE_H)
 
-if (frac(_max_h_scale) == 0) {
-	_max_h_scale--
-}
-
-window_scale = floor(min(_max_h_scale, _max_w_scale))
+window_scale = max(1, min(_max_h_scale, _max_w_scale))
 window_set_size(BASE_W * window_scale, BASE_H * window_scale)
 window_center()
 
